@@ -15,4 +15,15 @@ class TempatWisata extends Model
 {
    return $this->hasMany(Review::class);
 }
+
+public function paket()
+{
+   return $this->hasMany(User::class);
+}
+
+public function get()
+{
+    $data = collect([$this->review, $this->paket]);
+    return $data->unique();
+}
 }

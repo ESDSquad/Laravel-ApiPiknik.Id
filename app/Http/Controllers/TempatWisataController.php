@@ -59,6 +59,13 @@ class TempatWisataController extends Controller
         return response()->download($path);    
           
     }
+
+    public function map($fileName){
+
+        $path = public_path().'/mapimages/'.$fileName;
+        return response()->download($path);    
+          
+    }
     /**
      * Show the form for editing the specified resource.
      *

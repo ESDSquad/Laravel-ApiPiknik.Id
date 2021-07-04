@@ -25,6 +25,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('tempatwisata', [TempatWisataController::class, 'index']);
 Route::get('tempatwisata/{id}', [TempatWisataController::class, 'show']);
 Route::get('image/{filename}',[TempatWisataController::class, 'image']);
+Route::get('map/{filename}',[TempatWisataController::class, 'map']);
 
 
 //review

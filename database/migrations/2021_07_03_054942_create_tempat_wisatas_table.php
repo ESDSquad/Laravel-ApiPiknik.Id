@@ -17,7 +17,6 @@ class CreateTempatWisatasTable extends Migration
             $table->increments('id');
             $table->string('nama');
             $table->string('alamat');
-            $table->double('rating');
             $table->string('picture');
             $table->string('map');
             $table->string('deskripsi');

@@ -40,6 +40,7 @@ class ReviewController extends BaseController
         $review = new review;
         
         $review->review = $request->review;
+        $review->rating = $request->rating;
         $review->tempat_wisata_id =$request->tempat_wisata_id;
         $review->user_id= $request->user_id;
 
