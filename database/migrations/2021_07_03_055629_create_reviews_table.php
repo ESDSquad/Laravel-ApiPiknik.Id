@@ -17,8 +17,10 @@ class CreateReviewsTable extends Migration
             $table->increments('id');
             $table->string('review');
             $table->integer('tempat_wisata_id')->unsigned();
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('tempat_wisata_id')->references('id')->on('tempat_wisatas')->onDelete('cascade');
         });
     }

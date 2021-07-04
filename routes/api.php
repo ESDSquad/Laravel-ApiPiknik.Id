@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TempatWisataController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +21,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+//tempatwisata
 Route::get('tempatwisata', [TempatWisataController::class, 'index']);
 Route::get('tempatwisata/{id}', [TempatWisataController::class, 'show']);
+Route::get('image/{filename}',[TempatWisataController::class, 'image']);
 
+
+//review
+Route::post('review', [ReviewController::class, 'store']);
+Route::get('review', [ReviewController::class, 'index']);
 
 //USER
 Route::post('login', [UserController::class, 'login']);

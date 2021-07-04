@@ -48,10 +48,17 @@ class TempatWisataController extends Controller
      */
     public function show(TempatWisata $tempatWisata,$id)
     {
-       $findid = TempatWisata::with('review')->find($id);
+       $findid = TempatWisata::with('review.user')->find($id);
         return $findid;
     }
 
+
+    public function image($fileName){
+
+        $path = public_path().'/images/'.$fileName;
+        return response()->download($path);    
+          
+    }
     /**
      * Show the form for editing the specified resource.
      *

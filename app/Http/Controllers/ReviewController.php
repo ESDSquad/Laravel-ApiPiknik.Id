@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Review;
 use App\Models\TempatWisata;
 use Illuminate\Http\Request;
+use App\Http\Controllers\BaseController;
 
-class ReviewController extends Controller
+class ReviewController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-     //
+     return review::all();
     }
 
     /**
@@ -36,7 +37,17 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $review = new review;
+        
+        $review->review = $request->review;
+        $review->tempat_wisata_id =$request->tempat_wisata_id;
+        $review->user_id= $request->user_id;
+
+       if( $review->save()){
+        return $this->responseOk(null, 200, 'Data has been created');
+       }else{
+        return $this->responseError('Data Failed to create', 400);
+       }
     }
 
     /**
