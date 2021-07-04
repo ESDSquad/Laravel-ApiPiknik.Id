@@ -21,9 +21,9 @@ public function paket()
    return $this->hasMany(User::class);
 }
 
-public function get()
-{
-    $data = collect([$this->review, $this->paket]);
-    return $data->unique();
-}
+// public function get()
+// {
+//     $data = collect([$this->review, $this->paket]);
+//     return $data->unique();
+// }
 }
