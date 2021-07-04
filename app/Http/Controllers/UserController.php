@@ -28,6 +28,7 @@ class UserController extends BaseController
             
             $response = [
                 'token' => $user->createToken('MyToken')->accessToken,
+                'user_id' => $user->id,
                 'nama_lengkap' => $user->nama_lengkap,
                 'email' => $user->email,
             ];
